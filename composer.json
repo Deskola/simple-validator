@@ -1,0 +1,21 @@
+{
+    "name": "deskola/simple-validator",
+    "description": "This is a simple validator library adapted from https://www.phptutorial.net/php-tutorial/",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Deskola\\SimpleValidator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Deskola",
+            "email": "denisogunde@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "giggsey/libphonenumber-for-php": "^8.12"
+    }
+}
