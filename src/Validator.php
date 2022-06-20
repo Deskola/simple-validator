@@ -23,7 +23,7 @@ class Validator
         'number' => 'The %s must be numeric',
         'phone' => 'The %s must be a valid phone number',
         'url' => 'The %s must be a valid URL',
-        'giggsey' => 'The %s must be a valid phone number'
+        'iso' => 'The %s must be a valid phone number'
     ];
 
     public function __construct()
@@ -89,7 +89,7 @@ class Validator
      * @param $separator
      * @return array
      */
-    private function splitInput($str, $separator)
+    private function splitInput($str, $separator): array
     {
         return array_map('trim', explode($separator, $str));
     }
@@ -266,7 +266,7 @@ class Validator
         return filter_var($data[$field], FILTER_SANITIZE_URL);
     }
 
-    private static function is_giggsey(array $data, string $field, $iso)
+    private static function is_iso(array $data, string $field, $iso): bool
     {
         if (!isset($data[$field])) {
             return true;
