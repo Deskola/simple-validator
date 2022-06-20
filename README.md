@@ -9,7 +9,7 @@ on how to make a custom input validator form scratch.
 3) Usage
 
 ## Installation   <hr/>
-PHP versions 5.3 up to PHP 8.1 are currently supported.
+PHP versions 7.1 up to PHP 8.1 are currently supported.
 
 The PECL mbstring extension is required.
 
