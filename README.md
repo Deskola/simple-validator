@@ -45,7 +45,7 @@ Below are the rule that can be passed against an input<br/>
 | same: another_field  | same  | The name of another field | The field value must be the same as the value of the another_field  |   |
 | between: min, max  | between  | min and max are integers that specify the minimum and maximum length of the field  | The length of the field must be between min and max.  |   |
 | url  | url  |  No | The field must have a valid url starting with (http/https://)  |   |
-| giggsey:KE  | giggsey  | A string value of country ISO Name e.g. KE (for Kenya)  | This library also utilises giggsey library to validate phone number based on a country ISO Name  |   |
+| iso:KE  | iso  | A string value of country ISO Name e.g. KE (for Kenya)  | This library also utilises giggsey library to validate phone number based on a country ISO Name  |   |
 |   |   |   |   |   |
 
 ## Usage <hr/>
@@ -64,7 +64,7 @@ $iso = "KE";
 $fields = [
     'name' => "string| required | max: 3",
     'email' => 'email| required | email',
-    'phone' => 'string| required | giggsey:KE'
+    'phone' => 'string| required | iso:KE'
 ];
 
 $response = $validation->filter($data, $fields);
