@@ -2,7 +2,7 @@
 
 namespace Deskola\SimpleValidator;
 
-class Filter
+class InputFilter
 {
     private $sanitizer;
     private $validator;
