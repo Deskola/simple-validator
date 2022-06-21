@@ -52,7 +52,7 @@ Below are the rule that can be passed against an input<br/>
 
 ```php
 require_once  'vendor/autoload.php';
-$validation = new Deskola\SimpleValidator\Filter();
+$validation = new Deskola\SimpleValidator\InputFilter();
 
 $data = [
     'name' => 'Doe',

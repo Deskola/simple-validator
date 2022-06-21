@@ -102,7 +102,23 @@ class Validator
      */
     private static function is_required(array $data, string $field): bool
     {
-        return isset($data[$field]) && trim($data[$field]) !== '';
+        if (!isset($data[$field])){
+            return false;
+        }
+        
+        $errors = [];
+        if (is_array($data[$field]) && !empty($data[$field])){
+            $errors = array_map(function($item){
+                if (trim($item) !== '') {
+                    return true;
+                }
+                return false;
+            }, $data[$field]);
+        } elseif(!is_array($data[$field]) && !empty($data[$field])) {
+           return true;
+        }
+        
+        return in_array(false, $errors) ? false : true;
     }
 
     /**
