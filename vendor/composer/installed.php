@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '06226ec5f791980b8bb9e0a6d542716a777a309e',
         'name' => 'deskola/simple-validator',
         'dev' => true,
     ),
     'versions' => array(
         'deskola/simple-validator' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '06226ec5f791980b8bb9e0a6d542716a777a309e',
             'dev_requirement' => false,
         ),
         'giggsey/libphonenumber-for-php' => array(
@@ -36,6 +36,15 @@
             'aliases' => array(),
             'reference' => '9c1dca769253f6a3e81f9a5c167f53b6a54ab635',
             'dev_requirement' => false,
+        ),
+        'phpstan/phpstan' => array(
+            'pretty_version' => '1.10.8',
+            'version' => '1.10.8.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpstan/phpstan',
+            'aliases' => array(),
+            'reference' => '0166aef76e066f0dd2adc2799bdadfa1635711e9',
+            'dev_requirement' => true,
         ),
         'symfony/polyfill-mbstring' => array(
             'pretty_version' => 'v1.26.0',
