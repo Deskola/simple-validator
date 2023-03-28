@@ -39,7 +39,7 @@ Below are the rule that can be passed against an input<br/>
 | required  | required  |  No  | The field is set and not empty  |   |
 | alphanumeric  | alphanumeric  | No  |  The field only contains letters and numbers |   |
 | email  | email  |  No |  The field is a valid email address |   |
-| secure  | secure  | No  | The field must have between 8 and 64 characters and contain at least one number, one upper case letter, one lower case letter, and one special character. This rule is for the password field.  |   |
+| secure  | secure  | No  | The field must have between 8 and 64 characters and contain at least one number, one upper case letter, one lower case letter, and one special character. This rule is for the password field. example (!@#$%^&*+_)  |   |
 | min: 3  | min  | An integer specifies the minimum length of the field  | The length of the field must be greater than or equal to min length, e.g., 3  |   |
 | max: 255  | max  |  An integer specifies the maximum length of the field | The length of the field must be less than or equal to min length, e.g., 255  |   |
 | same: another_field  | same  | The name of another field | The field value must be the same as the value of the another_field  |   |
