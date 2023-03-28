@@ -18,12 +18,13 @@ class Validator
         'between' => 'The %s must have between %d and %d characters',
         'same' => 'The %s must match with %s',
         'alphanumeric' => 'The %s should have only letters and numbers',
-        'secure' => 'The %s must have between 8 and 64 characters and contain at least one number, one upper case letter, one lower case letter and one special character',
+        'secure' => 'The %s must have between 8 and 64 characters and contain at least one number, one upper case letter, one lower case letter and one special character example (!@#$%^&*+_)',
         'unique' => 'The %s already exists',
         'number' => 'The %s must be numeric',
         'phone' => 'The %s must be a valid phone number',
         'url' => 'The %s must be a valid URL',
-        'iso' => 'The %s must be a valid phone number'
+        'iso' => 'The %s must be a valid phone number',
+        'minAge' => 'The %s must be a older than minimun age',
     ];
 
     public function __construct()
@@ -282,6 +283,13 @@ class Validator
         return filter_var($data[$field], FILTER_SANITIZE_URL);
     }
 
+    /**
+     * Returns true if the phone number is valid based on the country iso name provided
+     * @param array $data
+     * @param string $field
+     * @param $iso
+     * @return bool
+     */
     private static function is_iso(array $data, string $field, $iso): bool
     {
         if (!isset($data[$field])) {
@@ -296,6 +304,22 @@ class Validator
         } catch (NumberParseException $e) {
             return false;
         }
+    }
+
+     /**
+     * Return true if the date is grater than minimum age
+     * @param array $data
+     * @param string $field
+     * @param $minAge
+     * @return bool
+     */    
+    private static function is_minAge(array $data, string $field, $minAge)
+    {
+        if (!isset($data[$field])) {
+            return true;
+        }
+
+        return date('Y-m-d') - $data[$field] >= $minAge ? true : false;
     }
 
 
