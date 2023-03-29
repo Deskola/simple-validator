@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '06226ec5f791980b8bb9e0a6d542716a777a309e',
+        'reference' => 'd787ead5d89177943c4e319b5cc0fc6110f476c9',
         'name' => 'deskola/simple-validator',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '06226ec5f791980b8bb9e0a6d542716a777a309e',
+            'reference' => 'd787ead5d89177943c4e319b5cc0fc6110f476c9',
             'dev_requirement' => false,
         ),
         'giggsey/libphonenumber-for-php' => array(
