@@ -25,6 +25,7 @@ class Validator
         'url' => 'The %s must be a valid URL',
         'iso' => 'The %s must be a valid phone number',
         'minAge' => 'The %s must be a older than minimun age',
+        'options' => 'The %s must be one of the options provided',
     ];
 
     public function __construct()
@@ -320,6 +321,19 @@ class Validator
         }
 
         return date('Y-m-d') - $data[$field] >= $minAge ? true : false;
+    }
+
+    private static function is_options(array $data, string $field, $options): bool
+    {
+        if (!isset($data[$field])) {
+            return true;
+        }
+
+        if (in_array($data[$field], explode(",", $options))) {
+            return true;
+        }
+
+        return false;
     }
 
 
