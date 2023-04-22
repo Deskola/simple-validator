@@ -46,6 +46,7 @@ Below are the rule that can be passed against an input<br/>
 | between: min, max  | between  | min and max are integers that specify the minimum and maximum length of the field  | The length of the field must be between min and max.  |   |
 | url  | url  |  No | The field must have a valid url starting with (http/https://)  |   |
 | iso:KE  | iso  | A string value of country ISO Name e.g. KE (for Kenya)  | This library also utilises giggsey library to validate phone number based on a country ISO Name  |   |
+| options:1,2  | options  |  comma separated list of items being validated against |   |   |
 |   |   |   |   |   |
 
 ## Usage <hr/>
