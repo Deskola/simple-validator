@@ -68,6 +68,7 @@ class Validator
                 $fn = array($this, 'is_' . $rule_name);
 
                 if (is_callable($fn, true, $actualFunc)) {
+                    
                     $pass = $actualFunc($data, $field, ...$params);
                     if (!$pass) {
                         // get the error message for a specific field and rule if exists
@@ -323,13 +324,13 @@ class Validator
         return date('Y-m-d') - $data[$field] >= $minAge ? true : false;
     }
 
-    private static function is_options(array $data, string $field, $options): bool
+    private static function is_options(array $data, string $field, ...$options): bool
     {
         if (!isset($data[$field])) {
             return true;
         }
 
-        if (in_array($data[$field], explode(",", $options))) {
+        if (in_array($data[$field], $options)) {
             return true;
         }
 
