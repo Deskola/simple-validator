@@ -26,6 +26,7 @@ class Validator
         'iso' => 'The %s must be a valid phone number',
         'minAge' => 'The %s must be a older than minimun age',
         'options' => 'The %s must be one of the options provided',
+        'exists' => 'The %s is not valid'
     ];
 
     public function __construct()
@@ -68,7 +69,7 @@ class Validator
                 $fn = array($this, 'is_' . $rule_name);
 
                 if (is_callable($fn, true, $actualFunc)) {
-                    
+
                     $pass = $actualFunc($data, $field, ...$params);
                     if (!$pass) {
                         // get the error message for a specific field and rule if exists
@@ -105,22 +106,24 @@ class Validator
      */
     private static function is_required(array $data, string $field): bool
     {
-        if (!isset($data[$field])){
+        if (!isset($data[$field])) {
             return false;
         }
-        
+
         $errors = [];
-        if (is_array($data[$field]) && !empty($data[$field])){
-            $errors = array_map(function($item){
+        if (is_array($data[$field]) && !empty($data[$field])) {
+            $errors = array_map(function ($item) {
                 if (trim($item) !== '') {
                     return true;
                 }
                 return false;
             }, $data[$field]);
-        } elseif(!is_array($data[$field]) && !empty($data[$field])) {
-           return true;
+        } elseif (!is_array($data[$field]) && !empty($data[$field])) {
+            return true;
+        } else if (is_string($data[$field]) && empty($data[$field])) {
+            return false;
         }
-        
+
         return in_array(false, $errors) ? false : true;
     }
 
@@ -308,13 +311,13 @@ class Validator
         }
     }
 
-     /**
+    /**
      * Return true if the date is grater than minimum age
      * @param array $data
      * @param string $field
      * @param $minAge
      * @return bool
-     */    
+     */
     private static function is_minAge(array $data, string $field, $minAge)
     {
         if (!isset($data[$field])) {
@@ -336,6 +339,4 @@ class Validator
 
         return false;
     }
-
-
 }
